@@ -7,6 +7,11 @@ class Player:
         self.l = l
         self.symbol = symbol
         self.travelled = 0
+def clear_screen():
+    if os.name == 'nt':
+        os.system("cls")
+    else:
+        os.system("clear")
 def move(p, speed, y, x, l):
     travelled = p.travelled
     ah = p.ah
@@ -314,7 +319,7 @@ broj_igraca = 0
 dimenzije_talona = 0
 seed = time.time_ns()
 while True:
-    os.system("cls")
+    clear_screen()
     try:
         print("Molimo Vas unesite validne dimenzije talona (neparan broj >= od 7):", end=' ')
         dimenzije_talona = int(input())
@@ -396,4 +401,4 @@ while True:
                 broj_figura_na_talonu[player_index] += 1
                 break
     player_index = (player_index + 1) % broj_igraca
-    os.system('cls')
+    clear_screen()
